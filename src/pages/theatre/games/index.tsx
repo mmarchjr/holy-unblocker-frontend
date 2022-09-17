@@ -7,7 +7,7 @@ import type {
 } from '../../../TheatreCommon';
 import { ItemList, TheatreAPI } from '../../../TheatreCommon';
 import SearchBar from '../../../TheatreSearchBar';
-import { ThemeLink } from '../../../ThemeElements';
+import { ThemeA, ThemeLink } from '../../../ThemeElements';
 import { DB_API } from '../../../consts';
 import categories from '../../../gameCategories';
 import type { Category } from '../../../gameCategories';
@@ -80,7 +80,7 @@ const Popular: HolyPage = () => {
 				<pre>{error}</pre>
 				<p>
 					Try again by clicking{' '}
-					<a
+					<ThemeA
 						href="i:"
 						onClick={(event) => {
 							event.preventDefault();
@@ -88,7 +88,7 @@ const Popular: HolyPage = () => {
 						}}
 					>
 						here
-					</a>
+					</ThemeA>
 					.
 					<br />
 					If this problem still occurs, check our{' '}

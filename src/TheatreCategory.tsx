@@ -3,7 +3,7 @@ import type { CategoryData, LoadingCategoryData } from './TheatreCommon';
 import { isLoading } from './TheatreCommon';
 import { ItemList, TheatreAPI } from './TheatreCommon';
 import SearchBar from './TheatreSearchBar';
-import { ThemeLink, ThemeSelect } from './ThemeElements';
+import { ThemeA, ThemeLink, ThemeSelect } from './ThemeElements';
 import { DB_API } from './consts';
 import isAbortError from './isAbortError';
 import { Obfuscated } from './obfuscate';
@@ -114,7 +114,7 @@ const Category: HolyPage<{
 				</span>
 				<p>
 					Try again by clicking{' '}
-					<a
+					<ThemeA
 						href="i:"
 						onClick={(event) => {
 							event.preventDefault();
@@ -122,7 +122,7 @@ const Category: HolyPage<{
 						}}
 					>
 						here
-					</a>
+					</ThemeA>
 					.
 					<br />
 					If this problem still occurs, check our{' '}

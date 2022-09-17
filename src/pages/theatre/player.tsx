@@ -2,7 +2,7 @@ import type { HolyPage } from '../../App';
 import resolveProxy from '../../ProxyResolver';
 import { TheatreAPI } from '../../TheatreCommon';
 import type { TheatreEntry } from '../../TheatreCommon';
-import { ThemeLink } from '../../ThemeElements';
+import { ThemeA, ThemeLink } from '../../ThemeElements';
 import { DB_API, THEATRE_CDN } from '../../consts';
 import { encryptURL } from '../../cryptURL';
 import isAbortError from '../../isAbortError';
@@ -180,7 +180,7 @@ const Player: HolyPage = ({ layout }) => {
 				</pre>
 				<p>
 					Try again by clicking{' '}
-					<a
+					<ThemeA
 						href="i:"
 						onClick={(event) => {
 							event.preventDefault();
@@ -188,7 +188,7 @@ const Player: HolyPage = ({ layout }) => {
 						}}
 					>
 						here
-					</a>
+					</ThemeA>
 					.
 					<br />
 					If this problem still occurs, check our{' '}
