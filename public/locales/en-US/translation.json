@@ -121,5 +121,26 @@
 			}
 		},
 		"contact": "Not what you're looking for? <0>Contact Us</0>."
+	},
+	"credits": {
+		"titles": {
+			"credits": "Credits",
+			"development": "Development",
+			"community": "Community",
+			"proxyScripts": "Proxy Scripts",
+			"sponsors": "Sponsors"
+		},
+		"sponsors": {
+			"serverHost": "Server hosting",
+			"patrons": "Our <0>Patrons</0>"
+		},
+		"positions": {
+			"communityMgr": "Community Manager",
+			"chatMod": "Chat Moderator",
+			"frontendDev": "Frontend Developer",
+			"backendDev": "Backend Developer",
+			"nerd": "NFT/Bitcoin specialist",
+			"accountant": "Accountant"
+		}
 	}
 }
