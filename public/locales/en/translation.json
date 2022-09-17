@@ -34,7 +34,9 @@
 			"rammerheadSavedSession": "Unable to check if the saved session exists.",
 			"rammerheadNewSession": "Unable to create a new Rammerhead session.",
 			"rammerheadEditSession": "Unable to edit a Rammerhead session.",
-			"rammerheadDict": "Unable to retrieve shuffled dictionary."
+			"rammerheadDict": "Unable to retrieve shuffled dictionary.",
+			"hash": "Aucun hachage n'a été fourni",
+			"decryptURL": "Échec du déchiffrement de la destination"
 		},
 		"loading": "Loading {{what}}..."
 	},

@@ -165,9 +165,13 @@ export default forwardRef<CompatLayoutRef, { children: ReactNode }>(
 			ref,
 			() => ({
 				get destination() {
-					if (location.hash === '') throw new Error('No hash was provided');
+					if (location.hash === '') throw new Error(t('compat.error.hash'));
 
-					return decryptURL(location.hash.slice(1));
+					try {
+						return decryptURL(location.hash.slice(1));
+					} catch (err) {
+						throw new Error(t('compat.error.decryptURL'));
+					}
 				},
 				report: (error: unknown, cause: string | undefined, origin: string) => {
 					console.error(error);
@@ -179,7 +183,7 @@ export default forwardRef<CompatLayoutRef, { children: ReactNode }>(
 					});
 				},
 			}),
-			[location]
+			[location.hash, t]
 		);
 
 		return (
@@ -188,7 +192,7 @@ export default forwardRef<CompatLayoutRef, { children: ReactNode }>(
 				{error ? (
 					<CommonError
 						error={error.cause || error.error}
-						message={t('compat.error.generic', { what: error.origin })}
+						message={t('compat.errorOccurred', { what: error.origin })}
 					/>
 				) : (
 					children
