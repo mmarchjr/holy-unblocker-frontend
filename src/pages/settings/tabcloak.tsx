@@ -2,6 +2,7 @@ import type { HolyPage } from '../../App';
 import { Notification } from '../../Notifications';
 import { ThemeButton, ThemeInputBar, themeStyles } from '../../ThemeElements';
 import { BARE_API } from '../../consts';
+import i18next from '../../i18n';
 import { Obfuscated } from '../../obfuscate';
 import styles from '../../styles/Settings.module.scss';
 import Check from '@mui/icons-material/Check';
@@ -21,9 +22,10 @@ interface ExtractedData {
 async function extractData(url: string): Promise<ExtractedData> {
 	const response = await bare.fetch(url, { redirect: 'follow' });
 
-	if (!response.ok) {
-		throw new Error(`Response was not OK. Got ${response.status}`);
-	}
+	if (!response.ok)
+		throw new Error(
+			i18next.t('settings.tabCloak.error.response', { status: response.status })
+		);
 
 	const parser = new DOMParser();
 
@@ -74,7 +76,7 @@ function resolveURL(input: string) {
 	} else if (input.includes('.') && !input.match(whitespace)) {
 		return `http://${input}`;
 	} else {
-		throw new Error('Bad URL');
+		throw new Error(i18next.t('settings.tabCloak.error.validate'));
 	}
 }
 
@@ -107,7 +109,7 @@ const TabCloak: HolyPage = ({ layout }) => {
 				default:
 					layout.current!.notifications.current!.add(
 						<Notification
-							description={t('notification.tabCloakFetching')}
+							description={t('settings.tabCloak.notification.fetching')}
 							type="info"
 						/>
 					);
@@ -127,7 +129,7 @@ const TabCloak: HolyPage = ({ layout }) => {
 
 			layout.current!.notifications.current!.add(
 				<Notification
-					description={t('notification.tabCloakSet')}
+					description={t('settings.tabCloak.notification.set')}
 					type="success"
 				/>
 			);
@@ -136,8 +138,12 @@ const TabCloak: HolyPage = ({ layout }) => {
 
 			layout.current!.notifications.current!.add(
 				<Notification
-					title={t('notification.tabCloakFetchFail')}
-					description={err instanceof Error ? err.message : 'Unknown Error'}
+					title={t('settings.tabCloak.notification.failure')}
+					description={
+						err instanceof Error
+							? err.message
+							: (i18next.t('commonError.unknownError') as string)
+					}
 					type="error"
 				/>
 			);
@@ -147,11 +153,11 @@ const TabCloak: HolyPage = ({ layout }) => {
 	return (
 		<section>
 			<p>
-				<Obfuscated>{t('settings.tabCloakDescription')}</Obfuscated>
+				<Obfuscated>{t('settings.tabCloak.description')}</Obfuscated>
 			</p>
 			<div>
 				<p>
-					<Obfuscated>{t('settings.tabCloakURL')}</Obfuscated>:
+					<Obfuscated>{t('settings.tabCloak.urlField')}</Obfuscated>:
 				</p>
 				<form
 					onSubmit={(event) => {
@@ -186,13 +192,13 @@ const TabCloak: HolyPage = ({ layout }) => {
 
 						layout.current!.notifications.current!.add(
 							<Notification
-								description={t('notification.tabCloakReset')}
+								description={t('settings.tabCloak.notification.reset')}
 								type="info"
 							/>
 						);
 					}}
 				>
-					<Obfuscated>{t('settings.tabCloakReset')}</Obfuscated>
+					<Obfuscated>{t('settings.tabCloak.resetButton')}</Obfuscated>
 				</ThemeButton>
 			</div>
 		</section>

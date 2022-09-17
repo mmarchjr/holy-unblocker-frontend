@@ -175,7 +175,7 @@ const Player: HolyPage = ({ layout }) => {
 		return (
 			<CommonError
 				error={errorCause.current || error}
-				message={t('theatre.playerEntryLoad')}
+				message={t('theatre.error.playerEntryLoad')}
 			/>
 		);
 

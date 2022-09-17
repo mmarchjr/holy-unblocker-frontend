@@ -73,7 +73,10 @@ const Popular: HolyPage = () => {
 
 	if (error) {
 		return (
-			<CommonError error={error} message={t('theatre.popularGamesLoad')} />
+			<CommonError
+				error={error}
+				message={t('theatre.error.popularGamesLoad')}
+			/>
 		);
 	}
 

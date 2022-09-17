@@ -108,7 +108,7 @@ const Category: HolyPage<{
 		return (
 			<CommonError
 				error={errorCause.current || error}
-				message={t('theatre.errorOccurred')}
+				message={t('theatre.error.generic')}
 			/>
 		);
 

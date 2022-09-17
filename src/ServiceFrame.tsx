@@ -20,6 +20,7 @@ import {
 	useMemo,
 	useState,
 } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
 export interface ServiceFrameRef {
@@ -30,6 +31,7 @@ const ServiceFrame = forwardRef<
 	ServiceFrameRef,
 	{ layout: LayoutDump['layout'] }
 >(function ServiceFrame({ layout }, ref) {
+	const { t } = useTranslation();
 	const iframe = useRef<HTMLIFrameElement | null>(null);
 	const [search, setSearch] = useSearchParams();
 	const [firstLoad, setFirstLoad] = useState(false);
@@ -62,7 +64,7 @@ const ServiceFrame = forwardRef<
 					console.error(err);
 					layout.current!.notifications.current!.add(
 						<Notification
-							title="Unable to find compatible proxy"
+							title={t('proxy.error.compatibleProxy')}
 							description={isDatabaseError(err) ? err.message : String(err)}
 							type="error"
 						/>
@@ -84,7 +86,7 @@ const ServiceFrame = forwardRef<
 			iframe.current.contentWindow.location.href = 'about:blank';
 			setLastSrc('about:blank');
 		}
-	}, [iframe, layout, search, setSearch, src]);
+	}, [iframe, layout, search, setSearch, src, t]);
 
 	useImperativeHandle(ref, () => ({
 		proxy: (src: string) => {

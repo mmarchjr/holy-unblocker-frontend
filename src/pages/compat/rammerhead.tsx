@@ -24,16 +24,16 @@ const Rammerhead: HolyPage = ({ compatLayout }) => {
 						sameSite: 'lax',
 					});
 
-				errorCause = t('compat.rammerheadUnreachable');
+				errorCause = t('compat.error.rammerhead');
 				await fetch(RH_API);
 				errorCause = undefined;
 
-				errorCause = t('compat.rammerheadSavedSession');
+				errorCause = t('compat.error.rammerheadSavedSession');
 				if (
 					!localStorage.rammerhead_session ||
 					!(await api.sessionExists(localStorage.rammerhead_session))
 				) {
-					errorCause = t('compat.rammerheadNewSession');
+					errorCause = t('compat.error.rammerheadNewSession');
 					const session = await api.newSession();
 					errorCause = undefined;
 					localStorage.rammerhead_session = session;
@@ -43,11 +43,11 @@ const Rammerhead: HolyPage = ({ compatLayout }) => {
 
 				errorCause = undefined;
 
-				errorCause = t('compat.rammerheadEditSession');
+				errorCause = t('compat.error.rammerheadEditSession');
 				await api.editSession(session, false, true);
 				errorCause = undefined;
 
-				errorCause = t('compat.rammerheadDict');
+				errorCause = t('compat.error.rammerheadDict');
 				const dict = await api.shuffleDict(session);
 				errorCause = undefined;
 

@@ -23,18 +23,20 @@
 		"settingsTabCloak": "Tab Cloak"
 	},
 	"compat": {
-		"errorOccurred": "An error occurred while loading {{what}}",
-		"httpsRequired": "HTTPS must be enabled to use this proxy.",
-		"swRequired": "Your browser doesn't support service workers.",
-		"loading": "Loading {{what}}...",
-		"failureLoadingBootstrapper": "Failure loading the bootstrapper.",
-		"failureRegisteringSW": "Failure registering the service worker.",
-		"bareServerUnreachable": "Bare server is unreachable.",
-		"rammerheadUnreachable": "Rammerhead server is unreachable.",
-		"rammerheadSavedSession": "Unable to check if the saved session exists.",
-		"rammerheadNewSession": "Unable to create a new Rammerhead session.",
-		"rammerheadEditSession": "Unable to edit a Rammerhead session.",
-		"rammerheadDict": "Unable to retrieve shuffled dictionary."
+		"error": {
+			"generic": "An error occurred while loading {{what}}",
+			"swHTTPS": "HTTPS must be enabled to use this proxy.",
+			"swSupport": "Your browser doesn't support service workers.",
+			"loadingBootstrapper": "Failure loading the bootstrapper.",
+			"registeringSW": "Failure registering the service worker.",
+			"bareServer": "Bare server is unreachable.",
+			"rammerhead": "Rammerhead server is unreachable.",
+			"rammerheadSavedSession": "Unable to check if the saved session exists.",
+			"rammerheadNewSession": "Unable to create a new Rammerhead session.",
+			"rammerheadEditSession": "Unable to edit a Rammerhead session.",
+			"rammerheadDict": "Unable to retrieve shuffled dictionary."
+		},
+		"loading": "Loading {{what}}..."
 	},
 	"theatre": {
 		"noFavorites": "You haven't added any favorites.",
@@ -46,24 +48,23 @@
 		"leastPopular": "Least Popular",
 		"nameASC": "Name (A-Z)",
 		"nameDES": "Name (Z-A)",
-		"errorOccurred": "An error occurred while loading the category",
-		"playerEntryLoad": "An error occurred while loading the app/game",
-		"popularGamesLoad": "An error occurred while loading popular games",
 		"click": "Click to focus",
 		"panorama": "Panorama mode",
 		"favorite": "Add to favorites",
 		"controls": "Controls",
-		"fullscreen": "Fullscreen mode"
+		"fullscreen": "Fullscreen mode",
+		"error": {
+			"generic": "An error occurred while loading the category",
+			"playerEntryLoad": "An error occurred while loading the app/game",
+			"popularGamesLoad": "An error occurred while loading popular games"
+		}
 	},
 	"proxy": {
 		"search": "Search {{engine}} or type a URL",
-		"faq": "If you're having issues with the proxy, try troubleshooting your problem by looking at the <0>FAQ</0>."
-	},
-	"notification": {
-		"tabCloakReset": "Cloak reset.",
-		"tabCloakFetching": "Requesting cloak data...",
-		"tabCloakFetchFail": "Unable to request cloak data.",
-		"tabCloakSet": "Cloak set."
+		"faq": "If you're having issues with the proxy, try troubleshooting your problem by looking at the <0>FAQ</0>.",
+		"error": {
+			"compatibleProxy": "Unable to find a compatible proxy"
+		}
 	},
 	"settings": {
 		"language": "Language",
@@ -75,13 +76,26 @@
 		"automaticProxy": "Automatic",
 		"searchEngine": "Search Engine",
 		"proxy": "Proxy",
-		"tabCloakDescription": "Tab Cloaking allows you to disguise Holy Unblocker as any website such as your school's home page, new tab, etc.",
-		"tabCloakURL": "URL",
-		"tabCloakReset": "Reset Cloak"
+		"tabCloak": {
+			"description": "Tab Cloaking allows you to disguise Holy Unblocker as any website such as your school's home page, new tab, etc.",
+			"urlField": "URL",
+			"resetButton": "Reset Cloak",
+			"notification": {
+				"reset": "Cloak reset.",
+				"fetching": "Requesting cloak data...",
+				"failure": "Unable to request cloak data.",
+				"set": "Cloak set."
+			},
+			"error": {
+				"response": "Cloak response was not OK. Got {{status}}.",
+				"validate": "Bad URL."
+			}
+		}
 	},
 	"commonError": {
 		"tryAgain": "Try again by clicking <0>here</0>.",
-		"stillOccurs": "If this problem still occurs, check our <0>FAQ</0> or <1>Contact Us</1>."
+		"stillOccurs": "If this problem still occurs, check our <0>FAQ</0> or <1>Contact Us</1>.",
+		"unknownError": "Unknown Error"
 	},
 	"navSection": {
 		"games": "Games",

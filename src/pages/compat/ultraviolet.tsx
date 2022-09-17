@@ -34,30 +34,30 @@ const Ultraviolet: HolyPage = ({ compatLayout }) => {
 
 			try {
 				if (!SERVICEWORKERS) {
-					errorCause = t('compat.httpsRequired');
+					errorCause = t('compat.error.swHTTPS');
 					throw new Error(errorCause);
 				}
 
 				if (!('serviceWorker' in navigator)) {
-					errorCause = t('compat.swRequired');
+					errorCause = t('compat.error.swSupport');
 					throw new Error(errorCause);
 				}
 
-				errorCause = t('compat.failureLoadingBootstrapper');
+				errorCause = t('compat.error.genericBootstrapper');
 				await uvBundle.current.promise;
 				errorCause = undefined;
 
 				const config = __uv$config;
 
 				// register sw
-				errorCause = t('compat.failureRegisteringSW');
+				errorCause = t('compat.error.registeringSW');
 				await navigator.serviceWorker.register('/uv/sw.js', {
 					scope: config.prefix,
 					updateViaCache: 'none',
 				});
 				errorCause = undefined;
 
-				errorCause = t('compat.bareServerUnreachable');
+				errorCause = t('compat.error.bareServer');
 				{
 					const bare = await fetch(BARE_API);
 					if (!bare.ok) {
