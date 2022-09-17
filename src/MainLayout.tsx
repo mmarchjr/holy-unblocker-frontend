@@ -20,6 +20,7 @@ import WebAsset from '@mui/icons-material/WebAsset';
 import clsx from 'clsx';
 import type { MouseEventHandler, ReactNode, SVGAttributes } from 'react';
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 
 function Hat(props: SVGAttributes<{}>) {
@@ -134,6 +135,8 @@ const MainLayout = forwardRef<
 		setExpanded(false);
 	}
 
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<ObfuscateLayout />
@@ -145,7 +148,7 @@ const MainLayout = forwardRef<
 					<Hat />
 				</Link>
 				<div className={styles.shiftRight}></div>
-				<Link className={styles.button} to={getHot('settings search').path}>
+				<Link className={styles.button} to={getHot('settings appearance').path}>
 					<Settings />
 				</Link>
 			</nav>
@@ -167,20 +170,20 @@ const MainLayout = forwardRef<
 					<div className={styles.menuList}>
 						<MenuTab
 							route={getHot('home').path}
-							name="Home"
+							name={t('homeLink')}
 							iconFilled={<Home />}
 							iconOutlined={<HomeOutlined />}
 							onClick={closeMenu}
 						/>
 						<MenuTab
 							route={getHot('proxy').path}
-							name="Proxy"
+							name={t('proxyLink')}
 							iconFilled={<WebAsset />}
 							onClick={closeMenu}
 						/>
 						<MenuTab
 							route={getHot('faq').path}
-							name="FAQ"
+							name={t('faqLink')}
 							iconFilled={<QuestionMark />}
 							onClick={closeMenu}
 						/>
@@ -189,14 +192,14 @@ const MainLayout = forwardRef<
 
 						<MenuTab
 							route={getHot('theatre apps').path}
-							name="Apps"
+							name={t('theatreAppsLink')}
 							iconFilled={<Apps />}
 							onClick={closeMenu}
 						/>
 
 						<MenuTab
 							route={getHot('theatre favorites').path}
-							name="Favorites"
+							name={t('theatreFavoritesLink')}
 							iconFilled={<StarRounded />}
 							iconOutlined={<StarOutlineRounded />}
 							onClick={closeMenu}
@@ -205,22 +208,22 @@ const MainLayout = forwardRef<
 						<div className={styles.bar} />
 
 						<div className={styles.title}>
-							<Obfuscated>Games</Obfuscated>
+							<Obfuscated>{t('navSectionGames')}</Obfuscated>
 						</div>
 
 						<MenuTab
 							route={getHot('theatre games popular').path}
-							name="Popular"
+							name={t('theatreGamesPopularLink')}
 							iconFilled={<SortRounded />}
 							onClick={closeMenu}
 						/>
 						<MenuTab
 							route={getHot('theatre games all').path}
-							name="All"
+							name={t('theatreGamesAllLink')}
 							iconFilled={<List />}
 							onClick={closeMenu}
 						/>
-						<div className={styles.title}>Genre</div>
+						<div className={styles.title}>{t('navSectionGenre')}</div>
 						<div className={styles.genres}>
 							{categories.map((category) => (
 								<Link
@@ -231,7 +234,11 @@ const MainLayout = forwardRef<
 									className={clsx(styles.entry, styles.text)}
 									onClick={() => setExpanded(false)}
 								>
-									<Obfuscated>{category.short || category.name}</Obfuscated>
+									<Obfuscated>
+										{t(
+											`gameCategory_${category.id}${category.short ? '_' : ''}`
+										)}
+									</Obfuscated>
 								</Link>
 							))}
 						</div>

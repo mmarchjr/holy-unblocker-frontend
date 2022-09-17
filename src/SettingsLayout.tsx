@@ -16,16 +16,16 @@ const SettingsLayout = ({ children }: { children: ReactNode }) => {
 				<div className={clsx(navStyles.menuList, styles.menuList)}>
 					<MenuTab
 						className={styles.entry}
-						route={getHot('settings search').path}
-						name="Search"
-						iconFilled={<Public />}
-					/>
-					<MenuTab
-						className={styles.entry}
 						route={getHot('settings appearance').path}
 						name="Appearance"
 						iconFilled={<Brush />}
 						iconOutlined={<BrushOutlined />}
+					/>
+					<MenuTab
+						className={styles.entry}
+						route={getHot('settings search').path}
+						name="Search"
+						iconFilled={<Public />}
 					/>
 					<MenuTab
 						className={styles.entry}

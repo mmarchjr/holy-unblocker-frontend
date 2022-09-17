@@ -18,6 +18,7 @@ import styles from '../../../styles/TheatreCategory.module.scss';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const entryLimit = 8;
 const loadingCategories: LoadingCategoryData = {
@@ -37,6 +38,8 @@ for (const category of categories)
 const categoryQuery = categories.map((category) => category.id).join(',');
 
 const Popular: HolyPage = () => {
+	const { t } = useTranslation();
+
 	const [data, setData] = useState<LoadingCategoryData | CategoryData>(
 		loadingCategories
 	);
@@ -127,7 +130,7 @@ const Popular: HolyPage = () => {
 				return (
 					<section className={styles.expand} key={section.category.id}>
 						<div className={styles.name}>
-							<h1>{section.category.name}</h1>
+							<h1>{t(`gameCategory_${section.category.id}`)}</h1>
 							<ThemeLink
 								to={`${getHot('theatre games category').path}?id=${
 									section.category.id
