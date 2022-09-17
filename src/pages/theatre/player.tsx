@@ -22,6 +22,7 @@ import StarBorder from '@mui/icons-material/StarBorder';
 import VideogameAsset from '@mui/icons-material/VideogameAsset';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
 async function resolveSrc(
@@ -54,6 +55,7 @@ async function resolveSrc(
 }
 
 const Player: HolyPage = ({ layout }) => {
+	const { t } = useTranslation();
 	const [searchParams] = useSearchParams();
 	const id = searchParams.get('id')!;
 	if (!id) throw new Error('Bad ID');
@@ -283,7 +285,7 @@ const Player: HolyPage = ({ layout }) => {
 				<div className={styles.iframeContainer}>
 					<div
 						className={styles.iframeCover}
-						title="Click to focus"
+						title={t('theatre.click')}
 						onClick={(event) => {
 							event.stopPropagation();
 							setIFrameFocused(true);
@@ -321,6 +323,7 @@ const Player: HolyPage = ({ layout }) => {
 					onClick={() => {
 						iframe.current!.requestFullscreen();
 					}}
+					title={t('theatre.fullscreen')}
 				>
 					<Fullscreen />
 				</div>
@@ -333,6 +336,7 @@ const Player: HolyPage = ({ layout }) => {
 							setControlsExpanded(!controlsExpanded);
 							controlsPopup.current!.focus();
 						}}
+						title={t('theatre.controls')}
 					>
 						<VideogameAsset />
 					</div>
@@ -356,6 +360,7 @@ const Player: HolyPage = ({ layout }) => {
 
 						setFavorited(favorites.includes(id));
 					}}
+					title={t('theatre.favorite')}
 				>
 					{favorited ? <Star /> : <StarBorder />}
 				</div>
@@ -364,6 +369,7 @@ const Player: HolyPage = ({ layout }) => {
 					onClick={async () => {
 						setPanorama(!panorama);
 					}}
+					title={t('theatre.panorama')}
 				>
 					{panorama ? <ChevronLeft /> : <Panorama />}
 				</div>

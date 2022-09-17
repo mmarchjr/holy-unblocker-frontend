@@ -1,11 +1,13 @@
 import type { HolyPage } from '../../App';
 import { RammerheadAPI, StrShuffler } from '../../RammerheadAPI';
 import { RH_API } from '../../consts';
-import { Obfuscated } from '../../obfuscate';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Rammerhead: HolyPage = ({ compatLayout }) => {
+	const { t } = useTranslation();
+
 	useEffect(() => {
 		(async function () {
 			let errorCause: string | undefined;
@@ -22,16 +24,16 @@ const Rammerhead: HolyPage = ({ compatLayout }) => {
 						sameSite: 'lax',
 					});
 
-				errorCause = 'Rammerhead server is unreachable.';
+				errorCause = t('compat.rammerheadUnreachable');
 				await fetch(RH_API);
 				errorCause = undefined;
 
-				errorCause = 'Unable to check if the saved session exists.';
+				errorCause = t('compat.rammerheadSavedSession');
 				if (
 					!localStorage.rammerhead_session ||
 					!(await api.sessionExists(localStorage.rammerhead_session))
 				) {
-					errorCause = 'Unable to create a new Rammerhead session.';
+					errorCause = t('compat.rammerheadNewSession');
 					const session = await api.newSession();
 					errorCause = undefined;
 					localStorage.rammerhead_session = session;
@@ -41,11 +43,11 @@ const Rammerhead: HolyPage = ({ compatLayout }) => {
 
 				errorCause = undefined;
 
-				errorCause = 'Unable to edit a Rammerhead session.';
+				errorCause = t('compat.rammerheadEditSession');
 				await api.editSession(session, false, true);
 				errorCause = undefined;
 
-				errorCause = 'Unable to retrieve shuffled dictionary.';
+				errorCause = t('compat.rammerheadDict');
 				const dict = await api.shuffleDict(session);
 				errorCause = undefined;
 
@@ -61,13 +63,9 @@ const Rammerhead: HolyPage = ({ compatLayout }) => {
 				compatLayout.current!.report(err, errorCause, 'Rammerhead');
 			}
 		})();
-	}, [compatLayout]);
+	}, [compatLayout, t]);
 
-	return (
-		<main>
-			Loading <Obfuscated>Rammerhead</Obfuscated>...
-		</main>
-	);
+	return <main>{t('loading', { what: 'Rammerhead' })}</main>;
 };
 
 export default Rammerhead;

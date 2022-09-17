@@ -13,6 +13,7 @@ import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import ChevronRight from '@mui/icons-material/ChevronRight';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
 const LIMIT = 30;
@@ -41,7 +42,8 @@ const Category: HolyPage<{
 	placeholder?: string;
 	id: string;
 	showCategory?: boolean;
-}> = ({ name, category, placeholder, id, showCategory }) => {
+}> = ({ name, category, placeholder, showCategory }) => {
+	const { t } = useTranslation();
 	const [search, setSearch] = useSearchParams();
 	let page = parseInt(search.get('page')!);
 	if (isNaN(page)) page = 0;
@@ -61,22 +63,16 @@ const Category: HolyPage<{
 			let sort;
 
 			switch (search.get('sort')) {
-				case 'Least Popular':
+				case 'leastPopular':
 					leastGreatest = true;
 				// falls through
-				case 'Most Popular':
+				case 'mostPopular':
 					sort = 'plays';
 					break;
-				case 'Least Favorites':
+				case 'nameASC':
 					leastGreatest = true;
 				// falls through
-				case 'Most Favorites':
-					sort = 'favorites';
-					break;
-				case 'Name (Z-A)':
-					leastGreatest = true;
-				// falls through
-				case 'Name (A-Z)':
+				case 'nameDES':
 					sort = 'name';
 					break;
 			}
@@ -112,7 +108,7 @@ const Category: HolyPage<{
 		return (
 			<main className="error">
 				<span>
-					An error occured when loading the category:
+					{t('theatre.errorOccurred')}:
 					<br />
 					<pre>{errorCause.current || error.toString()}</pre>
 				</span>
@@ -165,10 +161,10 @@ const Category: HolyPage<{
 							});
 						}}
 					>
-						<option value="Most Popular">Most Popular</option>
-						<option value="Least Popular">Least Popular</option>
-						<option value="Name (A-Z)">Name (A-Z)</option>
-						<option value="Name (Z-A)">Name (Z-A)</option>
+						<option value="mostPopular">{t('theatre.mostPopular')}</option>
+						<option value="Least Popular">{t('theatre.leastPopular')}</option>
+						<option value="nameASC">{t('theatre.nameASC')}</option>
+						<option value="nameDES">{t('theatre.nameDES')}</option>
 					</ThemeSelect>
 				</div>
 				<ItemList className={styles.items} items={data.entries} />

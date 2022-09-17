@@ -2,8 +2,8 @@ import type { HolyPage } from '../../App';
 import type { ScriptsRef } from '../../CompatLayout';
 import { Script, Scripts } from '../../CompatLayout';
 import { BARE_API, SERVICEWORKERS } from '../../consts';
-import { Obfuscated } from '../../obfuscate';
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type UVEncode = (encoded: string) => string;
 type UVDecode = (encoded: string) => string;
@@ -22,6 +22,8 @@ interface UVConfig {
 declare const __uv$config: UVConfig;
 
 const Ultraviolet: HolyPage = ({ compatLayout }) => {
+	const { t } = useTranslation();
+
 	const uvBundle = useRef<ScriptsRef | null>(null);
 
 	useEffect(() => {
@@ -32,30 +34,30 @@ const Ultraviolet: HolyPage = ({ compatLayout }) => {
 
 			try {
 				if (!SERVICEWORKERS) {
-					errorCause = 'Ultraviolet must be used under HTTPS.';
+					errorCause = t('compat.httpsRequired');
 					throw new Error(errorCause);
 				}
 
 				if (!('serviceWorker' in navigator)) {
-					errorCause = "Your browser doesn't support service workers.";
+					errorCause = t('compat.swRequired');
 					throw new Error(errorCause);
 				}
 
-				errorCause = 'Failure loading the Ultraviolet bundle.';
+				errorCause = t('compat.failureLoadingBootstrapper');
 				await uvBundle.current.promise;
 				errorCause = undefined;
 
 				const config = __uv$config;
 
 				// register sw
-				errorCause = 'Failure registering the Ultraviolet Service Worker.';
+				errorCause = t('compat.failureRegisteringSW');
 				await navigator.serviceWorker.register('/uv/sw.js', {
 					scope: config.prefix,
 					updateViaCache: 'none',
 				});
 				errorCause = undefined;
 
-				errorCause = 'Bare server is unreachable.';
+				errorCause = t('compat.bareServerUnreachable');
 				{
 					const bare = await fetch(BARE_API);
 					if (!bare.ok) {
@@ -74,7 +76,7 @@ const Ultraviolet: HolyPage = ({ compatLayout }) => {
 				compatLayout.current.report(err, errorCause, 'Ultraviolet');
 			}
 		})();
-	}, [compatLayout]);
+	}, [compatLayout, t]);
 
 	return (
 		<main>
@@ -82,7 +84,7 @@ const Ultraviolet: HolyPage = ({ compatLayout }) => {
 				<Script src="/uv/uv.bundle.js" />
 				<Script src="/uv/uv.config.js" />
 			</Scripts>
-			Loading <Obfuscated>Ultraviolet</Obfuscated>...
+			{t('compat.loading', { what: 'Ultraviolet' })}
 		</main>
 	);
 };

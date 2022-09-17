@@ -8,6 +8,7 @@ import Check from '@mui/icons-material/Check';
 import BareClient from '@tomphttp/bare-client';
 import clsx from 'clsx';
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const bare = new BareClient(BARE_API);
 
@@ -88,6 +89,7 @@ async function blobToDataURL(blob: Blob) {
 }
 
 const TabCloak: HolyPage = ({ layout }) => {
+	const { t } = useTranslation();
 	const input = useRef<HTMLInputElement | null>(null);
 
 	async function onSubmit() {
@@ -104,7 +106,10 @@ const TabCloak: HolyPage = ({ layout }) => {
 					break;
 				default:
 					layout.current!.notifications.current!.add(
-						<Notification description="Fetching..." type="info" />
+						<Notification
+							description={t('notification.tabCloakFetching')}
+							type="info"
+						/>
 					);
 
 					({ title, icon, url } = await extractData(resolved));
@@ -121,15 +126,18 @@ const TabCloak: HolyPage = ({ layout }) => {
 			});
 
 			layout.current!.notifications.current!.add(
-				<Notification description="Cloak set" type="success" />
+				<Notification
+					description={t('notification.tabCloakSet')}
+					type="success"
+				/>
 			);
 		} catch (err) {
 			console.error(err);
 
 			layout.current!.notifications.current!.add(
 				<Notification
-					title="Unable to fetch cloak"
-					description={err instanceof Error ? err.message : 'Unknown error'}
+					title={t('notification.tabCloakFetchFail')}
+					description={err instanceof Error ? err.message : 'Unknown Error'}
 					type="error"
 				/>
 			);
@@ -138,16 +146,13 @@ const TabCloak: HolyPage = ({ layout }) => {
 
 	return (
 		<section>
+			<p>
+				<Obfuscated>{t('settings.tabCloakDescription')}</Obfuscated>
+			</p>
 			<div>
-				<Obfuscated>
-					Tab Cloaking allows you to disguise Holy Unblocker as any website such
-					as your school's home page, new tab, etc.
-				</Obfuscated>
-			</div>
-			<div>
-				<span>
-					<Obfuscated>URL</Obfuscated>:
-				</span>
+				<p>
+					<Obfuscated>{t('settings.tabCloakURL')}</Obfuscated>:
+				</p>
 				<form
 					onSubmit={(event) => {
 						event.preventDefault();
@@ -180,11 +185,14 @@ const TabCloak: HolyPage = ({ layout }) => {
 						input.current!.value = '';
 
 						layout.current!.notifications.current!.add(
-							<Notification description="Cloak reset" type="info" />
+							<Notification
+								description={t('notification.tabCloakReset')}
+								type="info"
+							/>
 						);
 					}}
 				>
-					<Obfuscated>Reset Cloak</Obfuscated>
+					<Obfuscated>{t('settings.tabCloakReset')}</Obfuscated>
 				</ThemeButton>
 			</div>
 		</section>

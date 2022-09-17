@@ -124,7 +124,7 @@ const Popular: HolyPage = () => {
 			<SearchBar
 				showCategory
 				category={categoryQuery}
-				placeholder="Search by game name"
+				placeholder={t('theatre.searchByGame')}
 			/>
 			{Object.values(_categories).map((section) => {
 				return (

@@ -19,7 +19,7 @@ const Category: HolyPage = (props) => {
 			name={t(`gameCategory.${category.id}`)}
 			category={id}
 			id={id}
-			placeholder="Search by game name"
+			placeholder={t('theatre.searchByGame')}
 		/>
 	);
 };

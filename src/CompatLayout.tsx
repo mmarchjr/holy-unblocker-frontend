@@ -1,6 +1,6 @@
 import { ThemeA, ThemeLink } from './ThemeElements';
 import { decryptURL } from './cryptURL';
-import { ObfuscateLayout, Obfuscated } from './obfuscate';
+import { ObfuscateLayout } from './obfuscate';
 import { getHot } from './routes';
 import type { ReactNode } from 'react';
 import {
@@ -10,6 +10,7 @@ import {
 	useMemo,
 	useState,
 } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 function loadScript(
@@ -151,6 +152,8 @@ export interface CompatLayoutRef {
 
 export default forwardRef<CompatLayoutRef, { children: ReactNode }>(
 	function CompatLayout({ children }, ref) {
+		const { t } = useTranslation();
+
 		const location = useLocation();
 
 		const [error, setError] = useState<{
@@ -185,10 +188,7 @@ export default forwardRef<CompatLayoutRef, { children: ReactNode }>(
 				<ObfuscateLayout />
 				{error ? (
 					<main className="error">
-						<p>
-							An error occured when loading{' '}
-							<Obfuscated>{error.origin}</Obfuscated>:
-						</p>
+						<p>{t('compat.errorOccurred', { what: error.origin })}:</p>
 						<pre>{error.cause || error.error}</pre>
 						<p>
 							Try again by clicking{' '}

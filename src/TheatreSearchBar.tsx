@@ -173,7 +173,7 @@ const SearchBar = ({
 							{showCategory && entry.category[0] && (
 								<div className={styles.category}>
 									{t(
-										`gameCategory_${
+										`gameCategory.${
 											categories.find(
 												(category) => category.id === entry.category[0]
 											)?.id

@@ -1,9 +1,9 @@
 import type { HolyPage } from '../../App';
 import type { ScriptRef } from '../../CompatLayout';
 import { Script } from '../../CompatLayout';
-import { Obfuscated } from '../../obfuscate';
 import styles from '../../styles/CompatFlash.module.scss';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface RufflePlayerElement extends HTMLElement {
 	load(data: { url: string }): void;
@@ -17,6 +17,7 @@ declare const RufflePlayer: {
 };
 
 const Flash: HolyPage = ({ compatLayout }) => {
+	const { t } = useTranslation();
 	const container = useRef<HTMLElement | null>(null);
 	const ruffleBundle = useRef<ScriptRef | null>(null);
 	const [ruffleLoaded, setRuffleLoaded] = useState(false);
@@ -30,7 +31,7 @@ const Flash: HolyPage = ({ compatLayout }) => {
 			let errorCause: string | undefined;
 
 			try {
-				errorCause = 'Error loading Ruffle player.';
+				errorCause = t('compat.failureLoadingBootstrapper');
 				await ruffleBundle.current.promise;
 				errorCause = undefined;
 
@@ -57,7 +58,7 @@ const Flash: HolyPage = ({ compatLayout }) => {
 		return () => {
 			player?.remove();
 		};
-	}, [compatLayout, ruffleBundle]);
+	}, [compatLayout, ruffleBundle, t]);
 
 	return (
 		<main
@@ -66,11 +67,7 @@ const Flash: HolyPage = ({ compatLayout }) => {
 			ref={container}
 		>
 			<Script src="/ruffle/ruffle.js" ref={ruffleBundle} />
-			{!ruffleLoaded && (
-				<>
-					Loading <Obfuscated>Flash Player</Obfuscated>...
-				</>
-			)}
+			{!ruffleLoaded && t('loading', { what: 'Flash Player' })}
 		</main>
 	);
 };

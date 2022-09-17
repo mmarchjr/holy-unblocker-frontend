@@ -11,7 +11,7 @@ const Appearance: HolyPage = ({ layout }) => {
 	return (
 		<section>
 			<div>
-				<span>{t('settings.language')}:</span>
+				<p>{t('settings.language')}:</p>
 				<ThemeSelect
 					className={styles.ThemeSelect}
 					defaultValue={getLanguage()}
@@ -19,12 +19,12 @@ const Appearance: HolyPage = ({ layout }) => {
 						setLanguage(event.target.value as i18nLanguage);
 					}}
 				>
-					<option value="en-US">English</option>
-					<option value="fr">French</option>
+					<option value="en-US">{t('settings.languageEnglish')}</option>
+					<option value="fr">{t('settings.languageFrench')}</option>
 				</ThemeSelect>
 			</div>
 			<div>
-				<span>{t('settings.theme')}:</span>
+				<p>{t('settings.theme')}:</p>
 				<ThemeSelect
 					className={styles.ThemeSelect}
 					defaultValue={layout.current!.settings.theme}
