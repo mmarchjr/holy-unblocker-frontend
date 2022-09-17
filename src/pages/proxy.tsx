@@ -240,13 +240,9 @@ const SearchBar = ({ layout }: { layout: LayoutDump['layout'] }) => {
 };
 
 const FAQLink = ({ children }: { children?: ReactNode }) => (
-	// eslint-disable-next-line no-sequences
-	console.log(children),
-	(
-		<ThemeLink to={getHot('faq').path}>
-			<Obfuscated>{children}</Obfuscated>
-		</ThemeLink>
-	)
+	<ThemeLink to={getHot('faq').path}>
+		<Obfuscated>{children}</Obfuscated>
+	</ThemeLink>
 );
 
 const Proxies: HolyPage = ({ layout }) => {
