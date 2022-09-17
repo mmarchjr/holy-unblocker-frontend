@@ -35,6 +35,11 @@
 			flex-direction: column;
 			margin-bottom: 10px;
 			width: 100%;
+
+			> p {
+				display: block;
+				margin-bottom: 5px;
+			}
 		}
 	}
 
