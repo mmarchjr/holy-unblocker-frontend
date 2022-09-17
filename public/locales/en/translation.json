@@ -142,21 +142,11 @@
 		"titles": {
 			"credits": "Credits",
 			"development": "Development",
-			"community": "Community",
-			"proxyScripts": "Proxy Scripts",
-			"sponsors": "Sponsors"
-		},
-		"sponsors": {
-			"serverHost": "Server hosting",
-			"patrons": "Our <0>Patrons</0>"
+			"proxyScripts": "Proxy Scripts"
 		},
 		"positions": {
-			"communityMgr": "Community Manager",
-			"chatMod": "Chat Moderator",
 			"frontendDev": "Frontend Developer",
-			"backendDev": "Backend Developer",
-			"nerd": "NFT/Bitcoin specialist",
-			"accountant": "Accountant"
+			"backendDev": "Backend Developer"
 		}
 	}
 }
