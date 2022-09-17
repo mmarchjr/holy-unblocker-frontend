@@ -1,4 +1,5 @@
 import type { HolyPage } from '../../../App';
+import CommonError from '../../../CommonError';
 import type {
 	CategoryData,
 	LoadingCategoryData,
@@ -7,12 +8,11 @@ import type {
 } from '../../../TheatreCommon';
 import { ItemList, TheatreAPI } from '../../../TheatreCommon';
 import SearchBar from '../../../TheatreSearchBar';
-import { ThemeA, ThemeLink } from '../../../ThemeElements';
+import { ThemeLink } from '../../../ThemeElements';
 import { DB_API } from '../../../consts';
 import categories from '../../../gameCategories';
 import type { Category } from '../../../gameCategories';
 import isAbortError from '../../../isAbortError';
-import { Obfuscated } from '../../../obfuscate';
 import { getHot } from '../../../routes';
 import styles from '../../../styles/TheatreCategory.module.scss';
 import ArrowForward from '@mui/icons-material/ArrowForward';
@@ -73,35 +73,7 @@ const Popular: HolyPage = () => {
 
 	if (error) {
 		return (
-			<main className="error">
-				<p>
-					An error occured when loading popular <Obfuscated>games</Obfuscated>:
-				</p>
-				<pre>{error}</pre>
-				<p>
-					Try again by clicking{' '}
-					<ThemeA
-						href="i:"
-						onClick={(event) => {
-							event.preventDefault();
-							global.location.reload();
-						}}
-					>
-						here
-					</ThemeA>
-					.
-					<br />
-					If this problem still occurs, check our{' '}
-					<ThemeLink to={getHot('faq').path} target="_parent">
-						FAQ
-					</ThemeLink>{' '}
-					or{' '}
-					<ThemeLink to={getHot('contact').path} target="_parent">
-						Contact Us
-					</ThemeLink>
-					.
-				</p>
-			</main>
+			<CommonError error={error} message={t('theatre.popularGamesLoad')} />
 		);
 	}
 

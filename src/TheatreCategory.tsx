@@ -1,13 +1,13 @@
 import type { HolyPage } from './App';
+import CommonError from './CommonError';
 import type { CategoryData, LoadingCategoryData } from './TheatreCommon';
 import { isLoading } from './TheatreCommon';
 import { ItemList, TheatreAPI } from './TheatreCommon';
 import SearchBar from './TheatreSearchBar';
-import { ThemeA, ThemeLink, ThemeSelect } from './ThemeElements';
+import { ThemeSelect } from './ThemeElements';
 import { DB_API } from './consts';
 import isAbortError from './isAbortError';
 import { Obfuscated } from './obfuscate';
-import { getHot } from './routes';
 import styles from './styles/TheatreCategory.module.scss';
 import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import ChevronRight from '@mui/icons-material/ChevronRight';
@@ -106,36 +106,10 @@ const Category: HolyPage<{
 
 	if (error)
 		return (
-			<main className="error">
-				<span>
-					{t('theatre.errorOccurred')}:
-					<br />
-					<pre>{errorCause.current || error.toString()}</pre>
-				</span>
-				<p>
-					Try again by clicking{' '}
-					<ThemeA
-						href="i:"
-						onClick={(event) => {
-							event.preventDefault();
-							global.location.reload();
-						}}
-					>
-						here
-					</ThemeA>
-					.
-					<br />
-					If this problem still occurs, check our{' '}
-					<ThemeLink to={getHot('faq').path} target="_parent">
-						FAQ
-					</ThemeLink>{' '}
-					or{' '}
-					<ThemeLink to={getHot('contact').path} target="_parent">
-						Contact Us
-					</ThemeLink>
-					.
-				</p>
-			</main>
+			<CommonError
+				error={errorCause.current || error}
+				message={t('theatre.errorOccurred')}
+			/>
 		);
 
 	return (

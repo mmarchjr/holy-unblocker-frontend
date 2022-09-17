@@ -1,8 +1,8 @@
 import type { HolyPage } from '../../App';
+import CommonError from '../../CommonError';
 import resolveProxy from '../../ProxyResolver';
 import { TheatreAPI } from '../../TheatreCommon';
 import type { TheatreEntry } from '../../TheatreCommon';
-import { ThemeA, ThemeLink } from '../../ThemeElements';
 import { DB_API, THEATRE_CDN } from '../../consts';
 import { encryptURL } from '../../cryptURL';
 import isAbortError from '../../isAbortError';
@@ -173,35 +173,10 @@ const Player: HolyPage = ({ layout }) => {
 
 	if (error)
 		return (
-			<main className="error">
-				<p>An error occurreds when loading the entry:</p>
-				<pre>
-					<Obfuscated>{errorCause.current || error}</Obfuscated>
-				</pre>
-				<p>
-					Try again by clicking{' '}
-					<ThemeA
-						href="i:"
-						onClick={(event) => {
-							event.preventDefault();
-							global.location.reload();
-						}}
-					>
-						here
-					</ThemeA>
-					.
-					<br />
-					If this problem still occurs, check our{' '}
-					<ThemeLink to={getHot('faq').path} target="_parent">
-						FAQ
-					</ThemeLink>{' '}
-					or{' '}
-					<ThemeLink to={getHot('contact').path} target="_parent">
-						Contact Us
-					</ThemeLink>
-					.
-				</p>
-			</main>
+			<CommonError
+				error={errorCause.current || error}
+				message={t('theatre.playerEntryLoad')}
+			/>
 		);
 
 	if (!data) {

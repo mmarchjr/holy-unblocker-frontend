@@ -67,6 +67,12 @@ const ServiceFrame = forwardRef<
 							type="error"
 						/>
 					);
+
+					search.delete('query');
+
+					setSearch({
+						...Object.fromEntries(search),
+					});
 				}
 			})();
 		} else {
@@ -78,7 +84,7 @@ const ServiceFrame = forwardRef<
 			iframe.current.contentWindow.location.href = 'about:blank';
 			setLastSrc('about:blank');
 		}
-	}, [iframe, layout, src]);
+	}, [iframe, layout, search, setSearch, src]);
 
 	useImperativeHandle(ref, () => ({
 		proxy: (src: string) => {

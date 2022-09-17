@@ -22,30 +22,6 @@
 		"settingsSearch": "Search",
 		"settingsTabCloak": "Tab Cloak"
 	},
-	"proxy": {
-		"search": "Search {{engine}} or type a URL",
-		"faq": "If you're having issues with the proxy, try troubleshooting your problem by looking at the <0>FAQ</0>."
-	},
-	"notification": {
-		"tabCloakReset": "Cloak reset.",
-		"tabCloakFetching": "Requesting cloak data...",
-		"tabCloakFetchFail": "Unable to request cloak data.",
-		"tabCloakSet": "Cloak set."
-	},
-	"settings": {
-		"language": "Language",
-		"theme": "Theme",
-		"themeDay": "Day",
-		"themeNight": "Night",
-		"languageEnglish": "English",
-		"languageFrench": "French",
-		"automaticProxy": "Automatic",
-		"searchEngine": "Search Engine",
-		"proxy": "Proxy",
-		"tabCloakDescription": "Tab Cloaking allows you to disguise Holy Unblocker as any website such as your school's home page, new tab, etc.",
-		"tabCloakURL": "URL",
-		"tabCloakReset": "Reset Cloak"
-	},
 	"compat": {
 		"errorOccurred": "An error occurred while loading {{what}}",
 		"httpsRequired": "HTTPS must be enabled to use this proxy.",
@@ -70,12 +46,42 @@
 		"leastPopular": "Least Popular",
 		"nameASC": "Name (A-Z)",
 		"nameDES": "Name (Z-A)",
-		"errorOccured": "An error occurred while loading the category",
+		"errorOccurred": "An error occurred while loading the category",
+		"playerEntryLoad": "An error occurred while loading the app/game",
+		"popularGamesLoad": "An error occurred while loading popular games",
 		"click": "Click to focus",
 		"panorama": "Panorama mode",
 		"favorite": "Add to favorites",
 		"controls": "Controls",
 		"fullscreen": "Fullscreen mode"
+	},
+	"proxy": {
+		"search": "Search {{engine}} or type a URL",
+		"faq": "If you're having issues with the proxy, try troubleshooting your problem by looking at the <0>FAQ</0>."
+	},
+	"notification": {
+		"tabCloakReset": "Cloak reset.",
+		"tabCloakFetching": "Requesting cloak data...",
+		"tabCloakFetchFail": "Unable to request cloak data.",
+		"tabCloakSet": "Cloak set."
+	},
+	"settings": {
+		"language": "Language",
+		"theme": "Theme",
+		"themeDay": "Day",
+		"themeNight": "Night",
+		"languageEnglish": "English",
+		"languageFrench": "French",
+		"automaticProxy": "Automatic",
+		"searchEngine": "Search Engine",
+		"proxy": "Proxy",
+		"tabCloakDescription": "Tab Cloaking allows you to disguise Holy Unblocker as any website such as your school's home page, new tab, etc.",
+		"tabCloakURL": "URL",
+		"tabCloakReset": "Reset Cloak"
+	},
+	"commonError": {
+		"tryAgain": "Try again by clicking <0>here</0>.",
+		"stillOccurs": "If this problem still occurs, check our <0>FAQ</0> or <1>Contact Us</1>."
 	},
 	"navSection": {
 		"games": "Games",

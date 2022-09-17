@@ -46,7 +46,9 @@
 		"leastPopular": "Le moins populaire",
 		"nameASC": "Nom (A-Z)",
 		"nameDES": "Nom (Z-A)",
-		"errorOccured": "Une erreur s'est produite lors du chargement de la catégorie",
+		"errorOccurred": "Une erreur s'est produite lors du chargement de la catégorie",
+		"playerEntryLoad": "Une erreur s'est produite lors du chargement de l'app/du jeu",
+		"popularGamesLoad": "Une erreur s'est produite lors du chargement des jeux populaires",
 		"click": "Cliquez pour vous concentrer",
 		"panorama": "Mode panoramique",
 		"favorite": "Ajouter aux Favoris",
@@ -76,6 +78,10 @@
 		"tabCloakDescription": "Tab Cloaking vous permet de déguiser Holy Unblocker en n'importe quel site Web tel que la page d'accueil de votre école, un nouvel onglet, etc.",
 		"tabCloakURL": "URL",
 		"tabCloakReset": "Réinitialiser la Cape"
+	},
+	"commonError": {
+		"tryAgain": "Réessayez en cliquant <0>ici</0>.",
+		"stillOccurs": "Si ce problème persiste, consultez notre <0>FAQ</0> ou <1>Contactez-nous</1>."
 	},
 	"navSection": {
 		"games": "Jeux",

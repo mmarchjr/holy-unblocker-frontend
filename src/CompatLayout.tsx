@@ -1,7 +1,6 @@
-import { ThemeA, ThemeLink } from './ThemeElements';
+import CommonError from './CommonError';
 import { decryptURL } from './cryptURL';
 import { ObfuscateLayout } from './obfuscate';
-import { getHot } from './routes';
 import type { ReactNode } from 'react';
 import {
 	forwardRef,
@@ -187,33 +186,10 @@ export default forwardRef<CompatLayoutRef, { children: ReactNode }>(
 			<>
 				<ObfuscateLayout />
 				{error ? (
-					<main className="error">
-						<p>{t('compat.errorOccurred', { what: error.origin })}:</p>
-						<pre>{error.cause || error.error}</pre>
-						<p>
-							Try again by clicking{' '}
-							<ThemeA
-								href="i:"
-								onClick={(event) => {
-									event.preventDefault();
-									global.location.reload();
-								}}
-							>
-								here
-							</ThemeA>
-							.
-							<br />
-							If this problem still occurs, check our{' '}
-							<ThemeLink to={getHot('faq').path} target="_parent">
-								FAQ
-							</ThemeLink>{' '}
-							or{' '}
-							<ThemeLink to={getHot('contact').path} target="_parent">
-								Contact Us
-							</ThemeLink>
-							.
-						</p>
-					</main>
+					<CommonError
+						error={error.cause || error.error}
+						message={t('compat.errorOccurred', { what: error.origin })}
+					/>
 				) : (
 					children
 				)}
