@@ -1,0 +1,49 @@
+{
+	"contact": {
+		"title": "Contact"
+	},
+	"landing": {
+		"title": "Mettre fin à la censure d'Internet.",
+		"caption": "La confidentialité à portée de main.",
+		"getStarted": "Commencer"
+	},
+	"link": {
+		"credits": "Crédits",
+		"privacy": "Intimité",
+		"tou": "Conditions d'utilisation",
+		"home": "Maison",
+		"proxy": "Procuration",
+		"faq": "FAQ",
+		"theatreApps": "Apps",
+		"theatreFavorites": "Favoris",
+		"theatreGamesPopular": "Populaire",
+		"theatreGamesAll": "Tout",
+		"settingsAppearance": "Apparence",
+		"settingsSearch": "Chercher",
+		"settingsTabCloak": "Cape d'onglet"
+	},
+	"settings": {
+		"language": "Langue",
+		"theme": "Thème",
+		"themeDay": "Jour",
+		"themeNight": "Nuit"
+	},
+	"navSection": {
+		"games": "Jeux",
+		"genre": "Genre"
+	},
+	"gameCategory": {
+		"action_": "Action",
+		"action": "Action & Aventure",
+		"platformer": "Plateforme",
+		"shooter_": "Tireurs",
+		"shooter": "Jeux de tir et stratégie",
+		"rpg": "Jeu de rôle",
+		"sandbox": "Bac à sable",
+		"survival_": "Survie",
+		"survival": "Survie et Horreur",
+		"sports_": "Des Sports",
+		"sports": "Simulation et Sport",
+		"puzzle": "Puzzle"
+	}
+}

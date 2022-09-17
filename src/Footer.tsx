@@ -13,9 +13,9 @@ const Footer = () => {
 			<Waves />
 			<div className={styles.background}>
 				<div className={styles.content}>
-					<ThemeLink to={getHot('credits').path}>{t('creditsLink')}</ThemeLink>
-					<ThemeLink to={getHot('privacy').path}>{t('privacyLink')}</ThemeLink>
-					<ThemeLink to={getHot('terms').path}>{t('touLink')}</ThemeLink>
+					<ThemeLink to={getHot('credits').path}>{t('link.credits')}</ThemeLink>
+					<ThemeLink to={getHot('privacy').path}>{t('link.privacy')}</ThemeLink>
+					<ThemeLink to={getHot('terms').path}>{t('link.tou')}</ThemeLink>
 					<ThemeLink to={getHot('contact').path}>
 						&copy; <Obfuscated>Holy Unblocker</Obfuscated>{' '}
 						{new Date().getUTCFullYear()}

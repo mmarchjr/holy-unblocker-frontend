@@ -16,7 +16,7 @@ const Category: HolyPage = (props) => {
 		<TheatreCategory
 			{...props}
 			key={id}
-			name={t(`gameCategory_${category.id}`)}
+			name={t(`gameCategory.${category.id}`)}
 			category={id}
 			id={id}
 			placeholder="Search by game name"

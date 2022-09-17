@@ -1,0 +1,49 @@
+{
+	"contact": {
+		"title": "Contact"
+	},
+	"landing": {
+		"title": "End Internet Censorship.",
+		"caption": "Privacy right at your fingertips.",
+		"getStarted": "Get Started"
+	},
+	"link": {
+		"credits": "Credits",
+		"privacy": "Privacy",
+		"tou": "Terms of Use",
+		"home": "Home",
+		"proxy": "Proxy",
+		"faq": "FAQ",
+		"theatreApps": "Apps",
+		"theatreFavorites": "Favorites",
+		"theatreGamesPopular": "Popular",
+		"theatreGamesAll": "All",
+		"settingsAppearance": "Appearance",
+		"settingsSearch": "Search",
+		"settingsTabCloak": "Tab Cloak"
+	},
+	"settings": {
+		"language": "Language",
+		"theme": "Theme",
+		"themeDay": "Day",
+		"themeNight": "Night"
+	},
+	"navSection": {
+		"games": "Games",
+		"genre": "Genre"
+	},
+	"gameCategory": {
+		"action_": "Action",
+		"action": "Action & Adventure",
+		"platformer": "Platformer",
+		"shooter_": "Shooters",
+		"shooter": "Shooters & Strategy",
+		"rpg": "RPG",
+		"sandbox": "Sandbox",
+		"survival_": "Survival",
+		"survival": "Survival & Horror",
+		"sports_": "Sports",
+		"sports": "Simulation & Sports",
+		"puzzle": "Puzzle"
+	}
+}

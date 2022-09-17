@@ -10,16 +10,16 @@ const Home: HolyPage = ({ mainLayout }) => {
 	return (
 		<main className={styles.main}>
 			<h1>
-				<Obfuscated>{t('landingTitle')}</Obfuscated>
+				<Obfuscated>{t('landing.title')}</Obfuscated>
 			</h1>
 			<h2>
-				<Obfuscated>{t('landingCaption')}</Obfuscated>
+				<Obfuscated>{t('landing.caption')}</Obfuscated>
 			</h2>
 			<ThemeButton
 				className={styles.button}
 				onClick={() => mainLayout.current!.setExpanded(true)}
 			>
-				<Obfuscated>{t('getStarted')}</Obfuscated>
+				<Obfuscated>{t('landing.getStarted')}</Obfuscated>
 			</ThemeButton>
 		</main>
 	);

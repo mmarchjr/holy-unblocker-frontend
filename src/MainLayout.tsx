@@ -170,20 +170,20 @@ const MainLayout = forwardRef<
 					<div className={styles.menuList}>
 						<MenuTab
 							route={getHot('home').path}
-							name={t('homeLink')}
+							name={t('link.home')}
 							iconFilled={<Home />}
 							iconOutlined={<HomeOutlined />}
 							onClick={closeMenu}
 						/>
 						<MenuTab
 							route={getHot('proxy').path}
-							name={t('proxyLink')}
+							name={t('link.proxy')}
 							iconFilled={<WebAsset />}
 							onClick={closeMenu}
 						/>
 						<MenuTab
 							route={getHot('faq').path}
-							name={t('faqLink')}
+							name={t('link.faq')}
 							iconFilled={<QuestionMark />}
 							onClick={closeMenu}
 						/>
@@ -192,14 +192,14 @@ const MainLayout = forwardRef<
 
 						<MenuTab
 							route={getHot('theatre apps').path}
-							name={t('theatreAppsLink')}
+							name={t('link.theatreApps')}
 							iconFilled={<Apps />}
 							onClick={closeMenu}
 						/>
 
 						<MenuTab
 							route={getHot('theatre favorites').path}
-							name={t('theatreFavoritesLink')}
+							name={t('link.theatreFavorites')}
 							iconFilled={<StarRounded />}
 							iconOutlined={<StarOutlineRounded />}
 							onClick={closeMenu}
@@ -208,22 +208,22 @@ const MainLayout = forwardRef<
 						<div className={styles.bar} />
 
 						<div className={styles.title}>
-							<Obfuscated>{t('navSectionGames')}</Obfuscated>
+							<Obfuscated>{t('navSection.games')}</Obfuscated>
 						</div>
 
 						<MenuTab
 							route={getHot('theatre games popular').path}
-							name={t('theatreGamesPopularLink')}
+							name={t('link.theatreGamesPopular')}
 							iconFilled={<SortRounded />}
 							onClick={closeMenu}
 						/>
 						<MenuTab
 							route={getHot('theatre games all').path}
-							name={t('theatreGamesAllLink')}
+							name={t('link.theatreGamesAll')}
 							iconFilled={<List />}
 							onClick={closeMenu}
 						/>
-						<div className={styles.title}>{t('navSectionGenre')}</div>
+						<div className={styles.title}>{t('navSection.genre')}</div>
 						<div className={styles.genres}>
 							{categories.map((category) => (
 								<Link
@@ -236,7 +236,7 @@ const MainLayout = forwardRef<
 								>
 									<Obfuscated>
 										{t(
-											`gameCategory_${category.id}${category.short ? '_' : ''}`
+											`gameCategory.${category.id}${category.short ? '_' : ''}`
 										)}
 									</Obfuscated>
 								</Link>

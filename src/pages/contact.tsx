@@ -9,7 +9,7 @@ const Contact: HolyPage = () => {
 
 	return (
 		<main>
-			<h1>{t('contactTitle')}</h1>
+			<h1>{t('contact.title')}</h1>
 			<ul>
 				<li>
 					GitHub:{' '}

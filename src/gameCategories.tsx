@@ -1,8 +1,8 @@
 export interface Category {
 	/**
 	 * ID
-	 *i18n `name` is `gameCategory_${id}`
-	 *i18n `shortName` is `gameCategory_${id}_`
+	 *i18n `name` is `gameCategory.${id}`
+	 *i18n `shortName` is `gameCategory.${id}_`
 	 */
 	id: string;
 	/** i18n ID */
