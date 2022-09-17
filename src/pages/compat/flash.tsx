@@ -67,7 +67,7 @@ const Flash: HolyPage = ({ compatLayout }) => {
 			ref={container}
 		>
 			<Script src="/ruffle/ruffle.js" ref={ruffleBundle} />
-			{!ruffleLoaded && t('loading', { what: 'Flash Player' })}
+			{!ruffleLoaded && t('compat.loading', { what: 'Flash Player' })}
 		</main>
 	);
 };

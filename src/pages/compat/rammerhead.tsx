@@ -65,7 +65,7 @@ const Rammerhead: HolyPage = ({ compatLayout }) => {
 		})();
 	}, [compatLayout, t]);
 
-	return <main>{t('loading', { what: 'Rammerhead' })}</main>;
+	return <main>{t('compat.loading', { what: 'Rammerhead' })}</main>;
 };
 
 export default Rammerhead;
