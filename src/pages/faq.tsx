@@ -3,7 +3,7 @@ import { ObfuscatedThemeA, ThemeLink } from '../ThemeElements';
 import { TN_DISCORD_URL } from '../consts';
 import { Obfuscated } from '../obfuscate';
 import { getHot } from '../routes';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 const WebsiteAIOLink = ({ children }: { children?: ReactNode }) => (
@@ -39,26 +39,50 @@ const FAQ: HolyPage = () => {
 
 	return (
 		<main>
-			{(
-				[
-					['selfhost', [<WebsiteAIOLink />]],
-					['morelinks', [<TNInviteLink />]],
-					['source', [<GitLink />]],
-					['secure', [<PrivacyLink />]],
-				] as [faq: string, components: ReactElement[]][]
-			).map(([faq, components]) => (
-				<section key={faq}>
-					<h1>
-						<Obfuscated>{t(`faq.list.${faq}.q`)}</Obfuscated>
-					</h1>
-					<p>
-						<Trans
-							i18nKey={`faq.list.${faq}.a`}
-							components={[<Obfuscated />, ...components]}
-						/>
-					</p>
-				</section>
-			))}
+			<section>
+				<h1>
+					<Obfuscated>{t(`faq.list.selfhost.q`)}</Obfuscated>
+				</h1>
+				<p>
+					<Trans
+						i18nKey={`faq.list.selfhost.a`}
+						components={[<Obfuscated />, <WebsiteAIOLink />]}
+					/>
+				</p>
+			</section>
+			<section>
+				<h1>
+					<Obfuscated>{t(`faq.list.morelinks.q`)}</Obfuscated>
+				</h1>
+				<p>
+					<Trans
+						i18nKey={`faq.list.morelinks.a`}
+						components={[<Obfuscated />, <TNInviteLink />]}
+					/>
+				</p>
+			</section>
+			<section>
+				<h1>
+					<Obfuscated>{t(`faq.list.source.q`)}</Obfuscated>
+				</h1>
+				<p>
+					<Trans
+						i18nKey={`faq.list.source.a`}
+						components={[<Obfuscated />, <GitLink />]}
+					/>
+				</p>
+			</section>
+			<section>
+				<h1>
+					<Obfuscated>{t(`faq.list.secure.q`)}</Obfuscated>
+				</h1>
+				<p>
+					<Trans
+						i18nKey={`faq.list.secure.a`}
+						components={[<Obfuscated />, <PrivacyLink />]}
+					/>
+				</p>
+			</section>
 			<p style={{ marginTop: 30, opacity: 0.75 }}>
 				<Trans i18nKey={`faq.contact`} components={[<ContactLink />]} />
 			</p>
