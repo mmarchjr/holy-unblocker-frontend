@@ -68,7 +68,7 @@ const SearchBar = ({ layout }: { layout: LayoutDump['layout'] }) => {
 				))
 					entries.push(phrase);
 			} catch (err) {
-				if (!isAbortError(err) && isFailedToFetch(err)) {
+				if (isAbortError(err) || isFailedToFetch(err)) {
 					// likely abort error
 					console.error('Error fetching Bare server.');
 				} else {
