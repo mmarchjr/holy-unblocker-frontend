@@ -1,4 +1,5 @@
 import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
@@ -6,13 +7,13 @@ import { initReactI18next } from 'react-i18next';
 // (tip move them in a JSON file and import them,
 // or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
 
-const languages = ['en-US', 'fr'];
-export type i18nLanguage = 'en-US' | 'fr';
+const languages = ['en', 'fr'];
+export type i18nLanguage = 'en' | 'fr';
 
 let lng = localStorage.getItem('lng')! as i18nLanguage;
 
 if (!languages.includes(lng)) {
-	lng = 'en-US';
+	lng = 'en';
 	localStorage.setItem('lng', lng);
 }
 
@@ -27,9 +28,9 @@ export const setLanguage = (newLng: i18nLanguage) => {
 i18n
 	.use(initReactI18next) // passes i18n down to react-i18next
 	.use(HttpApi)
+	.use(LanguageDetector)
 	.init({
 		lng,
-		fallbackLng: 'en-US' as i18nLanguage,
 		interpolation: {
 			escapeValue: false, // react already safes from xss
 		},

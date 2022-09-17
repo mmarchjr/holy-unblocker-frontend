@@ -19,7 +19,7 @@ const Appearance: HolyPage = ({ layout }) => {
 						setLanguage(event.target.value as i18nLanguage);
 					}}
 				>
-					<option value="en-US">{t('settings.languageEnglish')}</option>
+					<option value="en">{t('settings.languageEnglish')}</option>
 					<option value="fr">{t('settings.languageFrench')}</option>
 				</ThemeSelect>
 			</div>
